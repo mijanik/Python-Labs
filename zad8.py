@@ -8,7 +8,7 @@ replace_dict = {
 def main():
     infile = "text\\plik_testowy.txt"
     outfile = "text\\nowy_plik.txt"
-    delete_list = [" i ", "oraz", "nigdy", "dlaczego"]
+    delete_list = ["oraz", "nigdy", "dlaczego", " i "]
     with open(infile) as fin, open(outfile, "w+") as fout:
         for line in fin:
             for word in delete_list:
