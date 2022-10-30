@@ -7,20 +7,13 @@ import functools
 import operator
 import matplotlib.pyplot as plt
 
-Calculated_Thread1 = 0
-Calculated_Thread2 = 0
-
 dict1 = {}
 dict2 = {}
-
-thread_1_done = 0
-thread_2_done = 0
 
 
 def count_elements(seq, mydict: dict, thread_id: int) -> dict:
     for i in seq:
         mydict[i] = mydict.get(i, 0) + 1
-
     return mydict
 
 
