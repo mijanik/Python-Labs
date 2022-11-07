@@ -1,54 +1,41 @@
-import xml.sax
+from xml.dom import minidom
+import xml.etree.ElementTree as ET
 
+def read_xml():
+    # parse an xml file by name
+    mydoc = minidom.parse('example.xml')
+    student_list = mydoc.getElementsByTagName('student')
+    print('\nAll Students and grades:')
+    for elem in student_list:
+        print("Name: " + elem.attributes['name'].value)
+        print("Grade: " + elem.attributes['grade'].value)
 
-# define a Custom ContentHandler class that extends ContenHandler
-class CustomContentHandler(xml.sax.ContentHandler):
-    def __init__(self):
-        self.postCount = 0
-        self.entryCount = 0
-        self.isInTitle = False
+def add_xml(my_name: str, my_grade: str):
+    # parse an xml file by name
+    mydoc = minidom.parse('example.xml')
+    newstudent = mydoc.createElement("student")
+    newstudent.setAttribute("name", my_name)
+    newstudent.setAttribute("grade", my_grade)
+    mydoc.firstChild.appendChild(newstudent)
 
-    # Handle startElement
-    def startElement(self, tagName, attrs):
-        if tagName == 'blogposts':
-            print('Blogposts title: ' + attrs['title'])
-        elif tagName == 'post':
-            self.postCount += 1
-        elif tagName == 'entry':
-            self.entryCount += 1
-        elif tagName == 'title':
-            self.isInTitle = True
-
-    # Handle endElement
-    def endElement(self, tagName):
-        if tagName == 'title':
-            self.isInTitle = False
-
-    # Handle text data
-    def characters(self, chars):
-        if self.isInTitle:
-            print('Title: ' + chars)
-
-    # Handle startDocument
-    def startDocument(self):
-        print('About to start!')
-
-    # Handle endDocument
-    def endDocument(self):
-        print('Finishing up!')
-
+    with open("example-new.xml", "w") as fs:
+        fs.write(mydoc.toxml())
+        fs.close()
 
 def main():
-    # create a new content handler for the SAX parser
-    handler = CustomContentHandler()
+    choice = input("Enter: 0 - exit\n1 - print example.xml\n2 - add new student\n")
 
-    # call the parse method on an XML file
-    xml.sax.parse('example.xml', handler)
+    match choice:
+        case "0":
+            pass
+        case "1":
+            read_xml()
+        case "2":
+            name, grade = input("Write in format:  First_name Last_name, grade\n").split(", ")
+            add_xml(name, grade)
 
-    # when we're done, print out some interesting results
-    print(f'There were {handler.postCount} post elements')
-    print(f'There were {handler.entryCount} entry elements')
+    return
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
