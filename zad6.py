@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 def main():
-    convert("pictures\\", ".jpg", ".png")
+    convert(r"pictures\", ".jpg", ".png")
 
 def convert(path, old_extension, new_extension):
     count = 0

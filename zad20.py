@@ -122,7 +122,7 @@ def main():
     threading.Thread(target=philosopher_brain, args=(kant, waiter)).start()
     threading.Thread(target=supervisor, args=(sokrates, platon, archimedes, pitagoras, kant, waiter)).start()
 
-    time.sleep(30)
+    time.sleep(10)
     global finished
     finished = 1
     while threading.active_count() != 1:

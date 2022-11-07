@@ -9,14 +9,17 @@ class Complex:
     def __sub__(self, other):
         return Complex(self.real - other.real, self.imag - other.imag)
 
+    def print(self):
+        print(str(self.real) + " + " + str(self.imag) + "i")
+
 def main():
     x = Complex(1, 1)
     y = Complex(-5, 4)
     z = x + y
     t = x - y
-    print(str(z.real) + " + " + str(z.imag) + ("j\n"))
-    print(str(t.real) + " + " + str(t.imag) + ("j\n"))
 
+    z.print()
+    t.print()
 
 if __name__ == "__main__":
     main()

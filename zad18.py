@@ -33,15 +33,15 @@ def rem_csv(to_remove: str):
 def main():
     print("Database content:\n")
     read_csv()
-    choice = input("Enter: \n1 - write row to CSV\n2 - delete from CSV\n")
+    choice = input("Enter: \nwrite - write row to CSV\ndelete - delete from CSV\n")
 
     match choice:
-        case "1":
+        case "write":
             title = input("Type Title:\n")
             description = input("Type Description:\n")
             add_csv(title, description)
 
-        case "2":
+        case "delete":
             to_remove = input("Type Title or Description of Task to remove:\n")
             rem_csv(to_remove)
 

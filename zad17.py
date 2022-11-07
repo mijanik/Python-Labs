@@ -20,7 +20,6 @@ def add_xml(my_name: str, my_grade: str):
 
     with open("example-new.xml", "w") as fs:
         fs.write(mydoc.toxml())
-        fs.close()
 
 def main():
     choice = input("Enter: 0 - exit\n1 - print example.xml\n2 - add new student\n")

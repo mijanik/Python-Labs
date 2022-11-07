@@ -18,13 +18,5 @@ def bubblesort(list1):
     return list1
 
 
-def main():
-    mylist = random_list_generator(50, 99)
-    [print(i, end=' ') for i in mylist]
-    print("\n\n")
-    mylist = bubblesort(mylist)
-    [print(i, end=' ') for i in mylist]
-
-
 if __name__ == "__main__":
-    main()
+    pass

@@ -1,20 +1,5 @@
-class Complex:
-    def __init__(self, real, imag):
-        self.real = real
-        self.imag = imag
+from zad15 import Complex
 
-    def __add__(self, other):
-        return Complex(self.real + other.real, self.imag + other.imag)
-
-    def __sub__(self, other):
-        return Complex(self.real - other.real, self.imag - other.imag)
-
-    def set(self, real, imag):
-        self.real = real
-        self.imag = imag
-
-    def print(self):
-        print(str(self.real) + " + " + str(self.imag) + "i")
 
 class Calculator:
     def __init__(self):
@@ -23,8 +8,10 @@ class Calculator:
         self.result = Complex(0, 0)
 
     def read(self, a_real, a_imag, b_real, b_imag):
-        self.a.set(a_real, a_imag)
-        self.b.set(b_real, b_imag)
+        self.a.real = a_real
+        self.a.imag = a_imag
+        self.b.real = b_real
+        self.b.imag = b_imag
 
     def sum(self):
         self.result = self.a + self.b
@@ -36,7 +23,7 @@ class Calculator:
         print("Hello!")
         choice = 1
         while choice != "0":
-            choice = input("Enter: 0 - exit\n1 - Calculate!\n")
+            choice = input("Enter: 0 to exit\nEnter anything else to start!")
             if choice == "0":
                 return
             a_real, a_imag, sign, b_real, b_imag = input("Enter equation, example: -1 +2i - 2 -2i\n").split(" ")
