@@ -1,7 +1,5 @@
-import random
 import numpy as np
 import threading
-import time
 import collections
 import functools
 import operator

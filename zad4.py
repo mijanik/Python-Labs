@@ -1,4 +1,5 @@
 import os
+# zamiast os można wykorzystać wygodniejszy PathLib
 
 def main():
     path = "dev"

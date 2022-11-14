@@ -13,6 +13,7 @@ class Complex:
         print(str(self.real) + " + " + str(self.imag) + "i")
 
 def main():
+    #test example:
     x = Complex(1, 1)
     y = Complex(-5, 4)
     z = x + y

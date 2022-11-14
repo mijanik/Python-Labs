@@ -4,7 +4,8 @@ replace_dict = {
     "nigdy": "prawie nigdy",
     "dlaczego": "czemu"
 }
-# rozdzielenie stringa na osobne slowa
+
+# inny sposób - rozdzielenie stringa na osobne slowa
 def main():
     infile = "text\\plik_testowy.txt"
     outfile = "text\\nowy_plik.txt"
